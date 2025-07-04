@@ -5,7 +5,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 
-const authRoutes = require("./routes/authRoutes");
+
 
 dotenv.config();
 const app = express();
@@ -23,8 +23,12 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-
+// @ts-ignore: TS1261 false positive on Windows
+const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
+
+const expenseRoutes = require("./routes/expenseRoutes");
+app.use("/api/expenses", expenseRoutes);
 
 
 mongoose
