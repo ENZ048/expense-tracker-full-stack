@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://expense-tracker-full-stack-seven.vercel.app",
     credentials: true,
   })
 );

@@ -65,10 +65,11 @@ exports.login = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "Lax",
-      secure: false,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      sameSite: "None", // required for cross-site cookies
+      secure: true,     // must be true for HTTPS
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
+
 
     res.status(200).json({
       message: "Login successful",
