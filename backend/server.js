@@ -5,6 +5,8 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 
+const authRoutes = require("./routes/authRoutes");
+
 dotenv.config();
 const app = express();
 
@@ -20,6 +22,10 @@ app.use(
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+
+
+app.use("/api/auth", authRoutes);
+
 
 mongoose
   .connect(process.env.MONGO_URI)
