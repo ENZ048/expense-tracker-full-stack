@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+require("./cron/weeklySUmmary");
 
 
 
@@ -29,6 +30,8 @@ app.use("/api/auth", authRoutes);
 
 const expenseRoutes = require("./routes/expenseRoutes");
 app.use("/api/expenses", expenseRoutes);
+
+
 
 
 mongoose
